@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route("/", methods=["POST"])
 def process_image():
-    pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+    pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
     file = request.files['image']
     img = cv2.imdecode(np.asarray(bytearray(file.stream.read()), dtype=np.uint8), cv2.IMREAD_COLOR)
 
