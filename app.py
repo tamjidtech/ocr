@@ -5,7 +5,11 @@ import numpy as np
 
 app = Flask(__name__)
 
-@app.route("/", methods=["POST"])
+@app.route("/")
+def welcone():
+    return 'App is Running...'
+
+@app.route("/img", methods=["POST"])
 def process_image():
     pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
     file = request.files['image']
